@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('form').addEventListener('submit', form_submitted, false);
   document.getElementById('toggle-colors').addEventListener('click', toggle_colors, false);  
   document.getElementById('restart').addEventListener('click', restart, false);  
+  document.querySelectorAll('input').forEach(field => {
+    field.addEventListener('input', lowercase);
+  });
   document.querySelectorAll('.letter').forEach(field => {
     field.addEventListener('input', advance_to_next_tab);
   });
@@ -76,7 +79,6 @@ function getInput() {
   }
   nowhereInfoBox.textContent = nowhere.join(', ');
   document.getElementById('output').style.setProperty('display', "initial");
-
 }
 
 function fetch_dictionary() {
@@ -103,6 +105,10 @@ function advance_to_next_tab(e) {
     }
     document.getElementById(next_field).focus();
   }
+}
+
+function lowercase(e) {
+  e.target.value = e.target.value.toLocaleLowerCase();
 }
 
 function toggle_colors() {
