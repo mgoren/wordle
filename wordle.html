@@ -2,40 +2,103 @@
 <html>
   <head>
     <script src="wordle.js"></script>
+    <link href="https://bootswatch.com/5/sketchy/bootstrap.css" rel="stylesheet">
     <link href="wordle.css" rel="stylesheet" type="text/css">
     <title>Pointless Wordle Solver</title>
   </head>
-  <body>
-    <div class="container">
-
-      <form id="form">
-        <div class="form-group">
-          <label>known:</label>
-          <input id="one" class="letter-known" type="text">
-          <input id="two" class="letter-known" type="text">
-          <input id="three" class="letter-known" type="text">
-          <input id="four" class="letter-known" type="text">
-          <input id="five" class="letter-known" type="text">
+  <body id="body">
+    <div class="container" id="container">
+      <h2>Pointless Wordle Solver</h1>
+      <div class="card">
+        <div class="card-body">
+          <div class="card-text">  
+            <p id="instructions">
+              Put <span id='green' class='color-name'>green</span> letters (known position) in the top row in the correct position.<br>
+              Put <span id='yellow' class='color-name'>yellow</span> letters (exist but elsewhere in word) in the second row in the position where they showed up.<br>
+              Put <span id='grey' class='color-name'>grey</span> letters (not in word) in the third row. (You may include multiple letters in this input field.)
+            </p>
+          </div>
         </div>
-        <div class="form-group">
-          <label>elsewhere:</label>
-          <input id="one" class="letter-elsewhere" type="text">
-          <input id="two" class="letter-elsewhere" type="text">
-          <input id="three" class="letter-elsewhere" type="text">
-          <input id="four" class="letter-elsewhere" type="text">
-          <input id="five" class="letter-elsewhere" type="text">
-        </div>
-        <div class="form-group">
-          <label>nowhere:</label>
-          <input id="nowhere" type="text">
-        </div>
-        <button type="submit" class="btn">Go</button>
-      </form>
-
-      <div id="result">
-        <p><span id="wordle-result"></span></p>
       </div>
-
+      <form id="form">
+        <div class="form-group row">
+          <label class='col-md-1'>known</label>
+          <input id="letter1" class="letter letter-known col-md-1" type="text" maxlength=1 autofocus=true>
+          <input id="letter2" class="letter letter-known col-md-1" type="text" maxlength=1>
+          <input id="letter3" class="letter letter-known col-md-1" type="text" maxlength=1>
+          <input id="letter4" class="letter letter-known col-md-1" type="text" maxlength=1>
+          <input id="letter5" class="letter letter-known col-md-1" type="text" maxlength=1>
+        </div>
+        <div class="form-group row">
+          <label class='col-md-1'>elsewhere</label>
+          <input id="letter6" class="letter letter-elsewhere col-md-1" type="text" maxlength=1>
+          <input id="letter7" class="letter letter-elsewhere col-md-1" type="text" maxlength=1>
+          <input id="letter8" class="letter letter-elsewhere col-md-1" type="text" maxlength=1>
+          <input id="letter9" class="letter letter-elsewhere col-md-1" type="text" maxlength=1>
+          <input id="letter10" class="letter letter-elsewhere col-md-1" type="text" maxlength=1>
+        </div>
+        <div class="form-group row">
+          <label class='col-md-1'>nowhere:</label>
+          <input id="nowhere" class="nowhere col-md-1" type="text">
+        </div>
+        <div class="row">
+          <button type="submit" class="btn btn-success btn-md col-md-1">Go</button>
+        </div>
+      </form>
+      <div id="output">
+        <div id="info">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-text">  
+                <div class="row">
+                  <p class="col-md-2">Somewhere:</p>
+                  <p class="col-md-2" id="somewhereInfo"></p>
+                </div>
+                <div class="row">
+                  <p class="col-md-2">Not in spot 1:</p>
+                  <p class="col-md-2" id="elsewhereInfo1"></p>
+                </div>
+                <div class="row">
+                  <p class="col-md-2">Not in spot 2:</p>
+                  <p class="col-md-2" id="elsewhereInfo2"></p>
+                </div>
+                <div class="row">
+                  <p class="col-md-2">Not in spot 3:</p>
+                  <p class="col-md-2" id="elsewhereInfo3"></p>
+                </div>
+                <div class="row">
+                  <p class="col-md-2">Not in spot 4:</p>
+                  <p class="col-md-2" id="elsewhereInfo4"></p>
+                </div>
+                <div class="row">
+                  <p class="col-md-2">Not in spot 5:</p>
+                  <p class="col-md-2" id="elsewhereInfo5"></p>
+                </div>
+                <div class="row">
+                  <p class="col-md-2">Nowhere:</p>
+                  <p class="col-md-2" id="nowhereInfo"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="result">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-text">  
+                <div class="row">
+                  <p>Possible words:</p>
+                  <p id="wordle-result"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1">Dark Mode</button>
+        <button id='restart' class="btn btn-danger btn-sm col-md-1">Start Over</button>
+      </div>
     </div>
   </body>
 </html>
