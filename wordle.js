@@ -9,8 +9,13 @@ let elsewhere = [[],[],[],[],[]];
 fetch_dictionary();
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('form').addEventListener('submit', form_submitted, false);
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.getElementById('toggle-colors').textContent = 'Light Theme';
+    document.getElementById('toggle-colors').classList.toggle('btn-dark');
+    document.getElementById('toggle-colors').classList.toggle('btn-light');
+  }
   document.getElementById('toggle-colors').addEventListener('click', toggle_colors, false);  
+  document.getElementById('form').addEventListener('submit', form_submitted, false);
   document.getElementById('restart').addEventListener('click', restart, false);  
   document.querySelectorAll('input').forEach(field => {
     field.addEventListener('input', lowercase);
@@ -112,15 +117,11 @@ function lowercase(e) {
 }
 
 function toggle_colors() {
-  let toggle_colors_btn = document.getElementById('toggle-colors');
-  document.getElementById('body').classList.toggle('dark-mode');
-  if (toggle_colors_btn.textContent == 'Dark Mode') {
-    toggle_colors_btn.textContent = 'Light Mode';
-    toggle_colors_btn.classList.remove('btn-dark');
-    toggle_colors_btn.classList.add('btn-light');
-  } else {
-    toggle_colors_btn.textContent = 'Dark Mode';
-    toggle_colors_btn.classList.remove('btn-light');
-    toggle_colors_btn.classList.add('btn-dark');
-  }  
+  let body = document.getElementById('body');
+  let button = document.getElementById('toggle-colors');
+  body.classList.toggle('dark-theme');
+  body.classList.toggle('light-theme');
+  button.classList.toggle('btn-dark');
+  button.classList.toggle('btn-light');
+  button.textContent = button.textContent == 'Dark Theme' ? 'Light Theme' : 'Dark Theme'
 }

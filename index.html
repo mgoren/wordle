@@ -11,43 +11,43 @@
   </head>
   <body id="body">
     <div class="container" id="container">
-      <h2>Pointless Wordle Solver</h1>
-      <div class="card">
+      <h2>Pointless Wordle Solver</h2>
+      <div class="card" id="form-card">
         <div class="card-body">
           <div class="card-text">  
-            <p id="instructions">
-              Put <span id='green' class='color-name'>green</span> letters (known position) in the top row in the correct position.<br>
-              Put <span id='yellow' class='color-name'>yellow</span> letters (exist but elsewhere in word) in the second row in the position where they showed up.<br>
-              Put <span id='grey' class='color-name'>grey</span> letters (not in word) in the third row. (You may include multiple letters in this input field.)
-            </p>
+            <div id="instructions">
+              <p>Put <span id='green' class='color-name'>green</span> letters (known position) in the top row in the correct position.</p>
+              <p>Put <span id='yellow' class='color-name'>yellow</span> letters (exist but elsewhere in word) in the second row in the position where they showed up.</p>
+              <p>Put <span id='grey' class='color-name'>grey</span> letters (not in word) in the third row. (You may include multiple letters in this input field.)</p>
+            </div>
+            <form id="form" autocomplete="off">
+              <label>known</label>
+              <div class="form-group row">
+                <input id="letter1" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true>
+                <input id="letter2" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter3" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter4" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter5" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+              </div>
+              <label>elsewhere</label>
+              <div class="form-group row">
+                <input id="letter6" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter7" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter8" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter9" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter10" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+              </div>
+              <label>nowhere</label>
+              <div class="form-group row">
+                <input id="nowhere" class="nowhere col-md-1" type="text" style="text-transform:lowercase" onkeypress="return /[a-z]/i.test(event.key)">
+              </div>
+              <div class="row">
+                <button type="submit" class="btn btn-success btn-md col-md-1" id="button-go">Go</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <form id="form">
-        <div class="form-group row">
-          <label class='col-md-1'>known</label>
-          <input id="letter1" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 autofocus=true>
-          <input id="letter2" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter3" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter4" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter5" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-        </div>
-        <div class="form-group row">
-          <label class='col-md-1'>elsewhere</label>
-          <input id="letter6" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter7" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter8" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter9" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-          <input id="letter10" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1>
-        </div>
-        <div class="form-group row">
-          <label class='col-md-1'>nowhere:</label>
-          <input id="nowhere" class="nowhere col-md-1" type="text" style="text-transform:lowercase">
-        </div>
-        <div class="row">
-          <button type="submit" class="btn btn-success btn-md col-md-1">Go</button>
-        </div>
-      </form>
       <div id="output">
         <div id="info">
           <div class="card">
@@ -98,10 +98,14 @@
           </div>
         </div>
       </div>
+
       <div class="row">
-        <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1">Dark Mode</button>
+        <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1">Dark Theme</button>
         <button id='restart' class="btn btn-danger btn-sm col-md-1">Start Over</button>
       </div>
+      <footer>
+        <p class="small">Code available on <a href="https://github.com/mgoren/wordle" target=_blank>GitHub</a>.</p>
+      </footer>
     </div>
   </body>
 </html>
