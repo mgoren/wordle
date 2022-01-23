@@ -1,14 +1,35 @@
 .container {
-  padding: 1em;
+  max-width: 500px;
+  padding: 0;
+  margin: auto;
+  /* min-height: 100vh; */
 }
 
-h2 {
-  margin-left: .25em;
-  margin-bottom: 1em;
+header {
+  text-align: center;
+  padding-top: 1em;
+  padding-bottom: .25em;
+}
+
+footer {
+  text-align: center;
+  padding-top: .75em;
+  padding-bottom: 1em;
+}
+
+footer span {
+  padding-left: 2.75em;
+  padding-right: 2.75em;
 }
 
 .card {
-  margin-bottom: 1em;
+  margin-bottom: .25em;
+  border: none;
+}
+
+#instructions {
+  margin-top: 1em;
+  margin-left: 2.5em;
 }
 
 form {
@@ -17,57 +38,92 @@ form {
 }
 
 .form-group {
-  margin-left: 0em;
-  margin-bottom: 1em;
+  margin-left: 2.5em;
+  margin-bottom: 2em;
+}
+
+label {
+  margin-left: 2em;
+  font-size: 20px;
 }
 
 .form-group .letter {
-  width: 2.5em;
+  width: 3em;
+  height: 3em;
+  margin-right: 1em;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bolder;
 }
 
 .form-group .nowhere {
-  width: 12.5em;
+  width: 19em;
+  height: 3em;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 0.5em;
 }
 
 footer {
-  margin-left: .5em;
-  margin-top: 2em;
+  margin: auto;
 }
 
 #output {
   display: none;
 }
 
-.btn {
-  margin-top: 1em;
-  margin-left: .75em;
-}
-
 .btn#button-go {
-  width: 12.5em;
+  margin-top: 1em;
+  margin-left: 3.3em;
+  width: 24em;
+  /* font-size: 20px; */
 }
 
 .btn#toggle-colors, #restart {
   width: 6em;
-  margin-right: 1.75em;
-  margin-left: 1.25em;
 }
 
-
-@media only screen and (min-width: 768px) {
-  .btn {
-    margin-left: 0.8em;
-    margin-right: 0.8em;
-  }
+.color-name {
+  padding: 2px 10px 2px 10px;
 }
 
-@media only screen and (min-width: 1053px) {
-  body {
-    margin: 50px;
+#instructions p {
+  margin-bottom: 0.25em;
+}
+
+.info {
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 499px) {
+  #instructions, .form-group, label {
+    margin-left: 5vw;
   }
-  .container {
-    padding: 3em;
-    margin-top: 1em;
+  .form-group .letter {
+    max-width: 3em;
+    width: 15vw;
+    height: 15vw;
+    margin-right: 2.5vw;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+  }
+  .form-group .nowhere {
+    max-width: 14em;
+    height: 3em;
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 0.5em;
+  }
+  .btn#button-go {
+    margin-left: 8%;
+    width: 85%;
+  }
+  footer span {
+    display: none;
+  }
+  .btn#restart {
+    margin-right: 1em;
   }
 }
 
@@ -81,8 +137,6 @@ footer {
 /* *********************** */
 
 .color-name {
-  padding: 2px 10px 2px 10px;
-  font-weight: 900;
   color: black;
 }
 

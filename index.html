@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="author" content="Mike Goren">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache" />
     <link href="https://bootswatch.com/5/sketchy/bootstrap.css" rel="stylesheet">
-    <link href="wordle.css" rel="stylesheet" type="text/css">
-    <script src="wordle.js"></script>
+    <link href="wordle.css?version=1" rel="stylesheet" type="text/css">
+    <script src="wordle.js?version=1"></script>
     <title>Pointless Wordle Solver</title>
   </head>
   <body id="body">
     <div class="container" id="container">
-      <h2>Pointless Wordle Solver</h2>
-      <div class="card" id="form-card">
+      <header>
+        <h2>Pointless Wordle Solver</h2>
+      </header>
+      <div class="card rounded-0" id="form-card">
         <div class="card-body">
           <div class="card-text">  
             <div id="instructions">
-              <p>Put <span id='green' class='color-name'>green</span> letters (known position) in the top row in the correct position.</p>
-              <p>Put <span id='yellow' class='color-name'>yellow</span> letters (exist but elsewhere in word) in the second row in the position where they showed up.</p>
-              <p>Put <span id='grey' class='color-name'>grey</span> letters (not in word) in the third row. (You may include multiple letters in this input field.)</p>
+              <p>Top row &ndash; <span id='green' class='color-name'>green</span> letters (known position)</p>
+              <p>Mid row &ndash; <span id='yellow' class='color-name'>yellow</span> letters (exist elsewhere)</p>
+              <p>Bottom row &ndash; <span id='grey' class='color-name'>grey</span> letters (not in word)</p>
             </div>
             <form id="form" autocomplete="off">
               <label>known</label>
@@ -50,43 +53,22 @@
       </div>
       <div id="output">
         <div id="info">
-          <div class="card">
+          <div class="card rounded-0">
             <div class="card-body">
-              <div class="card-text">  
-                <div class="row">
-                  <p class="col-md-2">Somewhere:</p>
-                  <p class="col-md-2" id="somewhereInfo"></p>
-                </div>
-                <div class="row">
-                  <p class="col-md-2">Not in spot 1:</p>
-                  <p class="col-md-2" id="elsewhereInfo1"></p>
-                </div>
-                <div class="row">
-                  <p class="col-md-2">Not in spot 2:</p>
-                  <p class="col-md-2" id="elsewhereInfo2"></p>
-                </div>
-                <div class="row">
-                  <p class="col-md-2">Not in spot 3:</p>
-                  <p class="col-md-2" id="elsewhereInfo3"></p>
-                </div>
-                <div class="row">
-                  <p class="col-md-2">Not in spot 4:</p>
-                  <p class="col-md-2" id="elsewhereInfo4"></p>
-                </div>
-                <div class="row">
-                  <p class="col-md-2">Not in spot 5:</p>
-                  <p class="col-md-2" id="elsewhereInfo5"></p>
-                </div>
-                <div class="row">
-                  <p class="col-md-2">Nowhere:</p>
-                  <p class="col-md-2" id="nowhereInfo"></p>
-                </div>
+              <div class="card-text">
+                <p>somewhere: <span class='info' id="somewhereInfo"></span></p>
+                <p>not in spot 1: <span class='info' id="elsewhereInfo1"></span></p>
+                <p>not in spot 2: <span class='info' id="elsewhereInfo2"></span></p>
+                <p>not in spot 3: <span class='info' id="elsewhereInfo3"></span></p>
+                <p>not in spot 4: <span class='info' id="elsewhereInfo4"></span></p>
+                <p>not in spot 5: <span class='info' id="elsewhereInfo5"></span></p>
+                <p>nowhere: <span class='info' id="nowhereInfo"></span></p>
               </div>
             </div>
           </div>
         </div>
         <div id="result">
-          <div class="card">
+          <div class="card rounded-0">
             <div class="card-body">
               <div class="card-text">  
                 <div class="row">
@@ -99,12 +81,10 @@
         </div>
       </div>
 
-      <div class="row">
-        <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1">Dark Theme</button>
-        <button id='restart' class="btn btn-danger btn-sm col-md-1">Start Over</button>
-      </div>
       <footer>
-        <p class="small">Code available on <a href="https://github.com/mgoren/wordle" target=_blank>GitHub</a>.</p>
+          <button id='restart' class="btn btn-danger btn-sm col-md-1 float-left">Start Over</button>
+          <span class="small">Code available on <a href="https://github.com/mgoren/wordle" target=_blank>GitHub</a>.</span>
+          <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1 float-right">Dark Theme</button>
       </footer>
     </div>
   </body>
