@@ -15,6 +15,7 @@ footer {
   text-align: center;
   padding-top: .75em;
   padding-bottom: 1em;
+  margin: auto;
 }
 
 footer span {
@@ -22,14 +23,27 @@ footer span {
   padding-right: 2.75em;
 }
 
-.card {
-  margin-bottom: .25em;
-  border: none;
+.instructions-container {
+  text-align: center;
 }
 
 #instructions {
   margin-top: 1em;
-  margin-left: 2.5em;
+  display: inline-block;
+  text-align: left;
+}
+
+#instructions p {
+  margin-bottom: 0.25em;
+}
+
+#instructions .color-name {
+  padding: 4px 5px 4px 5px;
+}
+
+.card {
+  margin-bottom: .25em;
+  border: none;
 }
 
 form {
@@ -37,236 +51,58 @@ form {
   margin-bottom: 2em;
 }
 
-.form-group {
-  margin-left: 2.5em;
-  margin-bottom: 2em;
+.letters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
 }
 
-label {
-  margin-left: 2em;
-  font-size: 20px;
+.letters .letter, .letters #nowhere {
+  height: 62px;
+  font-size: 2rem;
+  font-weight: bolder;
 }
 
-.form-group .letter {
-  width: 3em;
-  height: 3em;
-  margin-right: 1em;
-  font-size: 20px;
+.letters .letter {
+  width: 62px;
   text-align: center;
-  font-weight: bolder;
 }
 
-.form-group .nowhere {
-  width: 19em;
-  height: 3em;
-  font-size: 20px;
-  font-weight: bolder;
+.letters #nowhere {
+  width: 100%;
+  max-width: 310px;
+  text-align: left;
   letter-spacing: 0.5em;
-}
-
-footer {
-  margin: auto;
-}
-
-#output {
-  display: none;
+  padding-left: 0.5em;
 }
 
 .btn#button-go {
+  width: 100%;
+  max-width: 310px;
   margin-top: 1em;
-  margin-left: 3.3em;
-  width: 24em;
-  /* font-size: 20px; */
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 2.5rem;
 }
 
 .btn#toggle-colors, #restart {
   width: 6em;
 }
 
-.color-name {
-  padding: 2px 10px 2px 10px;
-}
-
-#instructions p {
-  margin-bottom: 0.25em;
-}
-
 .info {
   margin-left: 1em;
 }
 
+#output {
+  display: none;
+}
+
 @media screen and (max-width: 499px) {
-  #instructions, .form-group, label {
-    margin-left: 5vw;
-  }
-  .form-group .letter {
-    max-width: 3em;
-    width: 15vw;
-    height: 15vw;
-    margin-right: 2.5vw;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bolder;
-  }
-  .form-group .nowhere {
-    max-width: 14em;
-    height: 3em;
-    font-size: 20px;
-    font-weight: bolder;
-    letter-spacing: 0.5em;
-  }
-  .btn#button-go {
-    margin-left: 8%;
-    width: 85%;
-  }
-  footer span {
+  .extra {
     display: none;
   }
+  
   .btn#restart {
     margin-right: 1em;
-  }
-}
-
-
-
-
-
-
-/* *********************** */
-/*         COLORS          */
-/* *********************** */
-
-.color-name {
-  color: black;
-}
-
-.color-name#green {
-  background: #28a745;
-}
-
-.color-name#yellow {
-  background: yellow;
-}
-
-.color-name#grey {
-  background: rgb(199, 198, 198);
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    color: #121212;
-    background: #eee;
-  }
-
-  .container {
-    background:rgb(225, 206, 245);
-  }
-
-  h2 {
-    color: #121212;
-  }
-
-  .card, input {
-    background: #eee;
-    color: #121212;
-  }
-  
-  label {
-    color: #121212;
-  }
-
-  footer a {
-    color: #121212;
-  }
-
-  body.dark-theme {
-    color: #eee;
-    background: #121212;
-  }
-  
-  body.dark-theme .container {
-    background: rgb(38, 23, 88);
-  }
-  
-  body.dark-theme h2 {
-    color: lightgrey;
-  }
-
-  body.dark-theme .card {
-    background: black;
-    color: lightgrey;
-  }
-  
-  body.dark-theme input {
-    background: black;
-    color: white;
-  }
-  
-  body.dark-theme label {
-    color: lightgrey;
-  }
-
-  body.dark-theme footer a {
-    color: lightgrey;
-  }
-
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #eee;
-    background: #121212;
-  }
-
-  .container {
-    background: rgb(38, 23, 88);
-  }
-
-  h2 {
-    color: lightgrey;
-  }
-
-  .card {
-    background: black;
-    color: lightgrey;
-  }
-  
-  input {
-    background: black;
-    color: white;
-  }
-  
-  label {
-    color: lightgrey;
-  }
-
-  footer a {
-    color: lightgrey;
-  }
-
-  body.light-theme {
-    color: #121212;
-    background: #eee;
-  }
-  
-  body.light-theme .container {
-      background:rgb(225, 206, 245);
-  }
-
-  body.light-theme h2 {
-    color: #121212;
-  }
-
-  body.light-theme .card, input {
-    background: #eee;
-    color: #121212;
-  }
-  
-  body.light-theme label {
-    color: #121212;
-  }
-
-  body.light-theme footer a {
-    color: #121212;
-  }
+  } */
 }

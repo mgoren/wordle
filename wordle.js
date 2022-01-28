@@ -72,17 +72,15 @@ function getInput() {
   for(let i=0; i<elsewhere_inputs.length; i++) {
     elsewhere[i] = elsewhere[i].concat(elsewhere_inputs[i].value.split(''));
     elsewhere_inputs[i].value = '';
-    // elsewhere_inputs[i].placeholder = elsewhere[i].join('');
   }
   somewhere = Array.prototype.concat.apply([], elsewhere);
   nowhereField.value = '';
-  // nowhereField.placeholder = nowhere.join('');
 
-  somewhereInfoBox.textContent = somewhere.join(', ');
+  somewhereInfoBox.textContent = somewhere.join(', ').toLocaleUpperCase();
   for (el in elsewhere) {
-    document.getElementById('elsewhereInfo' + (parseInt(el) + 1)).textContent = elsewhere[el].join(', ');
+    document.getElementById('elsewhereInfo' + (parseInt(el) + 1)).textContent = elsewhere[el].join(', ').toLocaleUpperCase();
   }
-  nowhereInfoBox.textContent = nowhere.join(', ');
+  nowhereInfoBox.textContent = nowhere.join(', ').toLocaleUpperCase();
   document.getElementById('output').style.setProperty('display', "initial");
 }
 

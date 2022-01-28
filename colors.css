@@ -1,0 +1,144 @@
+/* *********************** */
+/*         COLORS          */
+/* *********************** */
+
+:root {
+  --green: #6aaa64;
+  --yellow: #c9b458;
+  --grey: #787c7e;
+}
+
+.color-name#green, #known .letter {
+  background: var(--green);
+}
+
+.color-name#yellow, #elsewhere .letter {
+  background: var(--yellow);
+}
+
+.color-name#grey, #nowhere {
+  background: var(--grey);
+}
+
+.color-name {
+  color: black;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: #121212;
+    background: #eee;
+  }
+
+  .container {
+    background:rgb(225, 206, 245);
+  }
+
+  h2 {
+    color: #121212;
+  }
+
+  .card, input {
+    background: #eee;
+    color: #121212;
+  }
+  
+  label {
+    color: #121212;
+  }
+
+  footer a {
+    color: #121212;
+  }
+
+  body.dark-theme {
+    color: #eee;
+    background: #121212;
+  }
+  
+  body.dark-theme .container {
+    background: rgb(38, 23, 88);
+  }
+  
+  body.dark-theme h2 {
+    color: lightgrey;
+  }
+
+  body.dark-theme .card {
+    background: black;
+    color: lightgrey;
+  }
+  
+  body.dark-theme input {
+    background: black;
+    color: white;
+  }
+  
+  body.dark-theme label {
+    color: lightgrey;
+  }
+
+  body.dark-theme footer a {
+    color: lightgrey;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #eee;
+    background: #121212;
+  }
+
+  .container {
+    background: rgb(38, 23, 88);
+  }
+
+  h2 {
+    color: lightgrey;
+  }
+
+  .card {
+    background: black;
+    color: lightgrey;
+  }
+  
+  input {
+    background: black;
+    color: white;
+  }
+  
+  label {
+    color: lightgrey;
+  }
+
+  footer a {
+    color: lightgrey;
+  }
+
+  body.light-theme {
+    color: #121212;
+    background: #eee;
+  }
+  
+  body.light-theme .container {
+      background:rgb(225, 206, 245);
+  }
+
+  body.light-theme h2 {
+    color: #121212;
+  }
+
+  body.light-theme .card, input {
+    background: #eee;
+    color: #121212;
+  }
+  
+  body.light-theme label {
+    color: #121212;
+  }
+
+  body.light-theme footer a {
+    color: #121212;
+  }
+}

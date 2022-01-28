@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="cache-control" content="no-cache" />
     <link href="https://bootswatch.com/5/sketchy/bootstrap.css" rel="stylesheet">
-    <link href="wordle.css?version=1" rel="stylesheet" type="text/css">
-    <script src="wordle.js?version=1"></script>
+    <link href="wordle.css?version=4" rel="stylesheet" type="text/css">
+    <link href="colors.css?version=4" rel="stylesheet" type="text/css">
+    <script src="wordle.js?version=4"></script>
     <title>Pointless Wordle Solver</title>
   </head>
   <body id="body">
@@ -17,36 +18,31 @@
       </header>
       <div class="card rounded-0" id="form-card">
         <div class="card-body">
-          <div class="card-text">  
+          <div class="card-text instructions-container">
             <div id="instructions">
-              <p>Top row &ndash; <span id='green' class='color-name'>green</span> letters (known position)</p>
-              <p>Mid row &ndash; <span id='yellow' class='color-name'>yellow</span> letters (exist elsewhere)</p>
-              <p>Bottom row &ndash; <span id='grey' class='color-name'>grey</span> letters (not in word)</p>
+              <p><span id='green' class='color-name'>Top</span> &ndash; letters with known position<span class="extra"> in the word</span></p>
+              <p><span id='yellow' class='color-name'>Mid</span> &ndash; letters exist elsewhere<span class="extra"> in the word</span></p>
+              <p><span id='grey' class='color-name'>Bottom</span> &ndash; letters <span class="extra"> do </span>not <span class="extra"> exist </span> in the word</p>
             </div>
             <form id="form" autocomplete="off">
-              <label>known</label>
-              <div class="form-group row">
-                <input id="letter1" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true>
-                <input id="letter2" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter3" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter4" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter5" class="letter letter-known col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+              <div id="known" class="letters">
+                <input id="letter1" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true>
+                <input id="letter2" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter3" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter4" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter5" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
               </div>
-              <label>elsewhere</label>
-              <div class="form-group row">
-                <input id="letter6" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter7" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter8" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter9" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
-                <input id="letter10" class="letter letter-elsewhere col-md-1" type="text" style="text-transform:lowercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+              <div id="elsewhere" class="letters">
+                <input id="letter6" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter7" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter8" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter9" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
+                <input id="letter10" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)">
               </div>
-              <label>nowhere</label>
-              <div class="form-group row">
-                <input id="nowhere" class="nowhere col-md-1" type="text" style="text-transform:lowercase" onkeypress="return /[a-z]/i.test(event.key)">
+              <div class="letters">
+                <input id="nowhere" class="nowhere" type="text" style="text-transform:uppercase" onkeypress="return /[a-z]/i.test(event.key)">
               </div>
-              <div class="row">
-                <button type="submit" class="btn btn-success btn-md col-md-1" id="button-go">Go</button>
-              </div>
+              <button type="submit" class="btn btn-success btn-sm" id="button-go">Go</button>
             </form>
           </div>
         </div>
@@ -56,13 +52,15 @@
           <div class="card rounded-0">
             <div class="card-body">
               <div class="card-text">
-                <p>somewhere: <span class='info' id="somewhereInfo"></span></p>
-                <p>not in spot 1: <span class='info' id="elsewhereInfo1"></span></p>
-                <p>not in spot 2: <span class='info' id="elsewhereInfo2"></span></p>
-                <p>not in spot 3: <span class='info' id="elsewhereInfo3"></span></p>
-                <p>not in spot 4: <span class='info' id="elsewhereInfo4"></span></p>
-                <p>not in spot 5: <span class='info' id="elsewhereInfo5"></span></p>
-                <p>nowhere: <span class='info' id="nowhereInfo"></span></p>
+                <p>
+                  somewhere: <span class='info' id="somewhereInfo"></span><br>
+                  not in spot 1: <span class='info' id="elsewhereInfo1"></span><br>
+                  not in spot 2: <span class='info' id="elsewhereInfo2"></span><br>
+                  not in spot 3: <span class='info' id="elsewhereInfo3"></span><br>
+                  not in spot 4: <span class='info' id="elsewhereInfo4"></span><br>
+                  not in spot 5: <span class='info' id="elsewhereInfo5"></span><br>
+                  nowhere: <span class='info' id="nowhereInfo"></span>
+                </p>
               </div>
             </div>
           </div>
@@ -83,7 +81,7 @@
 
       <footer>
           <button id='restart' class="btn btn-danger btn-sm col-md-1 float-left">Start Over</button>
-          <span class="small">Code available on <a href="https://github.com/mgoren/wordle" target=_blank>GitHub</a>.</span>
+          <span class="small extra">Code available on <a href="https://github.com/mgoren/wordle" target=_blank>GitHub</a>.</span>
           <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1 float-right">Dark Theme</button>
       </footer>
     </div>
