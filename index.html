@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="cache-control" content="no-cache" />
     <link href="https://bootswatch.com/5/sketchy/bootstrap.css" rel="stylesheet">
-    <link href="wordle.css?version=4" rel="stylesheet" type="text/css">
-    <link href="colors.css?version=4" rel="stylesheet" type="text/css">
-    <script src="wordle.js?version=4"></script>
+    <link href="wordle.css?version=5" rel="stylesheet" type="text/css">
+    <link href="colors.css?version=5" rel="stylesheet" type="text/css">
+    <script src="wordle.js?version=5"></script>
     <title>Pointless Wordle Solver</title>
   </head>
   <body id="body">
@@ -51,15 +51,25 @@
         <div id="info">
           <div class="card rounded-0">
             <div class="card-body">
+              <div class="holder">
+                <label>Somewhere, but not here:</label>
+              </div>
               <div class="card-text">
-                <p>
-                  somewhere: <span class='info' id="somewhereInfo"></span><br>
-                  not in spot 1: <span class='info' id="elsewhereInfo1"></span><br>
-                  not in spot 2: <span class='info' id="elsewhereInfo2"></span><br>
-                  not in spot 3: <span class='info' id="elsewhereInfo3"></span><br>
-                  not in spot 4: <span class='info' id="elsewhereInfo4"></span><br>
-                  not in spot 5: <span class='info' id="elsewhereInfo5"></span><br>
-                  nowhere: <span class='info' id="nowhereInfo"></span>
+                <div id="elsewhere-display" class="letters">
+                  <span id="elsewhereInfo1" class='info letter'></span>
+                  <span id="elsewhereInfo2" class='info letter'></span>
+                  <span id="elsewhereInfo3" class='info letter'></span>
+                  <span id="elsewhereInfo4" class='info letter'></span>
+                  <span id="elsewhereInfo5" class='info letter'></span>
+                </div>
+                <div id="nowhere-display">
+                  <div class="holder">
+                    <label>Nope:</label>
+                  </div>
+                  <div class="holder">
+                    <p  id="nowhereInfo" class="info"></p>
+                  </div>
+                </div>
                 </p>
               </div>
             </div>
@@ -68,9 +78,11 @@
         <div id="result">
           <div class="card rounded-0">
             <div class="card-body">
-              <div class="card-text">  
-                <div class="row">
-                  <p>Possible words:</p>
+              <div id="results-display" class="card-text">
+                <div class="holder">
+                  <label>Possible words:</label>
+                </div>
+                <div class="holder">
                   <p id="wordle-result"></p>
                 </div>
               </div>

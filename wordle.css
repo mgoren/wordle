@@ -76,6 +76,42 @@ form {
   padding-left: 0.5em;
 }
 
+#elsewhere-display .letter {
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  display: flex;
+  font-size: 1em;
+  padding: 0.4em 0.5em 0 0.5em;
+  border-style: solid;
+  margin: 0;
+}
+
+#nowhere-display {
+  margin-top: 1rem;
+}
+
+#nowhereInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 310px;
+  height: 31px;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  font-size: 1em;
+  padding: 0.4em 0.5em 0 0.5em;
+  border-style: solid;
+  margin: 0;
+}
+
+#wordle-result {
+  white-space: pre-wrap;
+}
+
+.holder {
+  display: flex;
+  justify-content: center;
+}
+
 .btn#button-go {
   width: 100%;
   max-width: 310px;
@@ -94,7 +130,7 @@ form {
 }
 
 #output {
-  display: none;
+  /* display: none; */
 }
 
 @media screen and (max-width: 499px) {
@@ -104,5 +140,5 @@ form {
   
   .btn#restart {
     margin-right: 1em;
-  } */
+  }
 }

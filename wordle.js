@@ -32,7 +32,7 @@ function form_submitted(evt) {
   select_words_containing_somewhere_letters();
   select_words_where_locations_known();
   exclude_words_where_letter_goes_elsewhere();
-  document.getElementById('wordle-result').innerHTML = words.join('<br>');
+  document.getElementById('wordle-result').innerHTML = words.join('  ');
 };
 
 function exclude_words_containing_nowhere_letters() {
@@ -63,7 +63,6 @@ function getInput() {
   const knownFields = document.querySelectorAll('.letter-known');
   const nowhereField = document.getElementById('nowhere');
   const elsewhereFields = document.querySelectorAll('.letter-elsewhere');
-  const somewhereInfoBox = document.getElementById('somewhereInfo');
   const nowhereInfoBox = document.getElementById('nowhereInfo');
 
   known = Array.from(knownFields).map(el => el.value);
@@ -76,11 +75,10 @@ function getInput() {
   somewhere = unique_sorted(Array.prototype.concat.apply([], elsewhere));
   nowhereField.value = '';
 
-  somewhereInfoBox.textContent = somewhere.join(', ').toLocaleUpperCase();
   for (el in elsewhere) {
-    document.getElementById('elsewhereInfo' + (parseInt(el) + 1)).textContent = elsewhere[el].join(', ').toLocaleUpperCase();
+    document.getElementById('elsewhereInfo' + (parseInt(el) + 1)).textContent = elsewhere[el].join(' ').toLocaleUpperCase();
   }
-  nowhereInfoBox.textContent = nowhere.join(', ').toLocaleUpperCase();
+  nowhereInfoBox.textContent = nowhere.join(' ').toLocaleUpperCase();
   document.getElementById('output').style.setProperty('display', "initial");
 }
 
