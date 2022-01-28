@@ -1,6 +1,7 @@
 // TO DO (handle multiples):
 // when we know a letter exists elsewhere AND it's already in known spot also (yellow e while also green e, meaning we know word must have another e in addition to the known one)
-// when it shows letter as somewhere or known and also nowhere, cuz letter is only in there once (grey e and also green/yellow, so we know word has only the one e, not two)
+// maybe really what I should be doing is only running code against latest entries rather than against whole list every time?
+// also exclude words with two of letter if enter it into never box after already in known
 
 // exciting global variables ;)
 let [words, known, nowhere, somewhere] = [[],[],[],[]];
@@ -37,19 +38,22 @@ function form_submitted(evt) {
 
 function exclude_words_containing_nowhere_letters() {
   if (nowhere.length > 0) {
-    words = words.filter(word => !word.match(new RegExp(nowhere.join('|'))))
+    let filtered_nowhere = nowhere.filter(letter => !known.includes(letter));
+    if (filtered_nowhere.length > 0) {
+      words = words.filter(word => !word.match(new RegExp(filtered_nowhere.join('|'))))
+    }
   }
 }
 
 function select_words_containing_somewhere_letters() {
   for (letter of somewhere) {
     words = words.filter(word => word.match(new RegExp(letter)));
-  }  
+  }
 }
 
 function select_words_where_locations_known() {
   for(let i=0; i<5; i++) {
-    if (known[i] != '') words = words.filter(word => word[i] == known[i]);    
+    if (known[i] != '') words = words.filter(word => word[i] == known[i]);
   }
 }
 
