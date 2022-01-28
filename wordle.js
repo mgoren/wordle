@@ -67,13 +67,13 @@ function getInput() {
   const nowhereInfoBox = document.getElementById('nowhereInfo');
 
   known = Array.from(knownFields).map(el => el.value);
-  nowhere = nowhere.concat(nowhereField.value.split(''));
+  nowhere = unique_sorted(nowhere.concat(nowhereField.value.split('')));
   let elsewhere_inputs = Array.from(elsewhereFields);
   for(let i=0; i<elsewhere_inputs.length; i++) {
-    elsewhere[i] = elsewhere[i].concat(elsewhere_inputs[i].value.split(''));
+    elsewhere[i] = unique_sorted(elsewhere[i].concat(elsewhere_inputs[i].value.split('')));
     elsewhere_inputs[i].value = '';
   }
-  somewhere = Array.prototype.concat.apply([], elsewhere);
+  somewhere = unique_sorted(Array.prototype.concat.apply([], elsewhere));
   nowhereField.value = '';
 
   somewhereInfoBox.textContent = somewhere.join(', ').toLocaleUpperCase();
@@ -122,4 +122,8 @@ function toggle_colors() {
   button.classList.toggle('btn-dark');
   button.classList.toggle('btn-light');
   button.textContent = button.textContent == 'Dark Theme' ? 'Light Theme' : 'Dark Theme'
+}
+
+function unique_sorted(array) {
+  return Array.from([...new Set(array)]).sort();
 }
