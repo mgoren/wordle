@@ -69,7 +69,7 @@
     color: lightgrey;
   }
   
-  body.dark-theme input {
+  body.dark-theme input, body.dark-theme #elsewhere-display .letter, body.dark-theme #nowhereInfo {
     background: black;
     color: white;
   }
@@ -103,7 +103,7 @@
     color: lightgrey;
   }
   
-  input {
+  input, #elsewhere-display .letter, #nowhereInfo {
     background: black;
     color: white;
   }
@@ -129,7 +129,7 @@
     color: #121212;
   }
 
-  body.light-theme .card, input {
+  body.light-theme .card, body.light-theme input, body.light-theme #elsewhere-display .letter, body.light-theme #nowhereInfo {
     background: #eee;
     color: #121212;
   }

@@ -130,7 +130,7 @@ form {
 }
 
 #output {
-  /* display: none; */
+  display: none;
 }
 
 @media screen and (max-width: 499px) {
@@ -141,4 +141,30 @@ form {
   .btn#restart {
     margin-right: 1em;
   }
+}
+
+@media screen and (max-width: 350px) {
+  form .letters .letter {
+    width: 100%;
+    max-width: 62px;
+    height: 31px;
+    font-size: 1em;
+    padding-top: .2em;
+    padding-bottom: 0;
+  }
+
+  form .letters #nowhere {
+    width: 100%;
+    max-width: 310px;
+    height: 31px;
+    font-size: 1em;
+    padding-top: .2em;
+    padding-bottom: 0;
+  }
+
+  .btn#button-go {
+    margin-top: .5em;
+    font-size: 1rem;
+    height: 2rem;  
+  }  
 }
