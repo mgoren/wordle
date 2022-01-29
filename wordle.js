@@ -1,7 +1,6 @@
 // TO DO (handle multiples):
 // when we know a letter exists elsewhere AND it's already in known spot also (yellow e while also green e, meaning we know word must have another e in addition to the known one)
 // maybe really what I should be doing is only running code against latest entries rather than against whole list every time?
-// also exclude words with two of letter if enter it into never box after already in known
 
 // exciting global variables ;)
 let [words, known, nowhere, somewhere] = [[],[],[],[]];
@@ -28,12 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function form_submitted(evt) {
   evt.preventDefault();
+
+  window.knownFields = document.querySelectorAll('.letter-known');
+  window.nowhereField = document.getElementById('nowhere');
+  window.elsewhereFields = document.querySelectorAll('.letter-elsewhere');
+  window.nowhereInfoBox = document.getElementById('nowhereInfo');
+
   getInput();
   exclude_words_containing_nowhere_letters();
   select_words_containing_somewhere_letters();
   select_words_where_locations_known();
   exclude_words_where_letter_goes_elsewhere();
-  document.getElementById('wordle-result').innerHTML = words.join('  ');
+  showResults();
 };
 
 function exclude_words_containing_nowhere_letters() {
@@ -64,26 +69,27 @@ function exclude_words_where_letter_goes_elsewhere() {
 }
 
 function getInput() {
-  const knownFields = document.querySelectorAll('.letter-known');
-  const nowhereField = document.getElementById('nowhere');
-  const elsewhereFields = document.querySelectorAll('.letter-elsewhere');
-  const nowhereInfoBox = document.getElementById('nowhereInfo');
-
   known = Array.from(knownFields).map(el => el.value);
-  nowhere = unique_sorted(nowhere.concat(nowhereField.value.split('')));
+  const latestNowhere = nowhereField.value.split('');
+  nowhere = unique_sorted(nowhere.concat(latestNowhere));
   let elsewhere_inputs = Array.from(elsewhereFields);
-  for(let i=0; i<elsewhere_inputs.length; i++) {
-    elsewhere[i] = unique_sorted(elsewhere[i].concat(elsewhere_inputs[i].value.split('')));
-    elsewhere_inputs[i].value = '';
+  for (let i=0; i<elsewhere_inputs.length; i++) {
+    elsewhere[i] = elsewhere[i].concat(elsewhere_inputs[i].value.split(''));
+    elsewhere[i] = elsewhere[i].concat(latestNowhere.filter(letter => known.includes(letter) && known[i] != letter));
+    elsewhere[i] = unique_sorted(elsewhere[i]);
   }
   somewhere = unique_sorted(Array.prototype.concat.apply([], elsewhere));
-  nowhereField.value = '';
+}
 
+function showResults() {
+  elsewhereFields.forEach(el => el.value = '');
+  nowhereField.value = '';
   for (el in elsewhere) {
     document.getElementById('elsewhereInfo' + (parseInt(el) + 1)).textContent = elsewhere[el].join(' ').toLocaleUpperCase();
   }
   nowhereInfoBox.textContent = nowhere.join(' ').toLocaleUpperCase();
   document.getElementById('output').style.setProperty('display', "initial");
+  document.getElementById('wordle-result').innerHTML = words.join('  ');
 }
 
 function fetch_dictionary() {

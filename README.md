@@ -9,4 +9,3 @@ Word list from Donald Knuth's [list](https://charlesreid1.com/wiki/Five_Letter_W
 ### To Do
 
 - when we know a letter exists elsewhere AND it's already in known spot also (yellow e while also green e, meaning we know word must have another e in addition to the known one)
-- when it shows letter as known and also nowhere, cuz letter is only in there once (grey e and also green/yellow, so we know word has only the one e, not two)
