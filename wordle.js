@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function form_submitted(evt) {
   evt.preventDefault();
-  document.activeElement.blur()
+  document.activeElement.blur(); // make mobile keyboard go away
 
   window.knownFields = document.querySelectorAll('.letter-known');
   window.nowhereField = document.getElementById('nowhere');
