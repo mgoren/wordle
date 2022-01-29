@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function form_submitted(evt) {
   evt.preventDefault();
+  document.activeElement.blur()
 
   window.knownFields = document.querySelectorAll('.letter-known');
   window.nowhereField = document.getElementById('nowhere');
