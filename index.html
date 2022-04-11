@@ -6,42 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="cache-control" content="no-cache" />
     <link href="https://bootswatch.com/5/sketchy/bootstrap.css" rel="stylesheet">
-    <link href="wordle.css?version=14" rel="stylesheet" type="text/css">
-    <link href="colors.css?version=14" rel="stylesheet" type="text/css">
-    <script src="wordle.js?version=14"></script>
-    <title>Pointless Wordle Solver</title>
+    <link href="wordle.css?version=15" rel="stylesheet" type="text/css">
+    <link href="colors.css?version=15" rel="stylesheet" type="text/css">
+    <script src="wordle.js?version=15"></script>
+    <title>Another Wordle Clone</title>
   </head>
   <body id="body">
     <div class="container" id="container">
       <header>
-        <h2>Pointless Wordle Solver</h2>
+        <h2>Another Wordle Clone</h2>
       </header>
       <section>
         <div class="card rounded-0" id="form-card">
           <div class="card-body">
             <div class="card-text instructions-container">
-              <div id="instructions">
-                <p><span id='green' class='color-name'>Top</span> &ndash; letters with known position<span class="extra"> in the word</span></p>
-                <p><span id='yellow' class='color-name'>Mid</span> &ndash; letters exist elsewhere<span class="extra"> in the word</span></p>
-                <p><span id='grey' class='color-name'>Bottom</span> &ndash; letters <span class="extra"> do </span>not <span class="extra"> exist </span> in the word</p>
-              </div>
               <form id="form" autocomplete="off">
-                <div id="known" class="letters">
-                  <input id="letter1" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
-                  <input id="letter2" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter3" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter4" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter5" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                </div>
-                <div id="elsewhere" class="letters">
-                  <input id="letter6" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter7" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter8" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter9" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
-                  <input id="letter10" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                <div class="letters">
+                  <input id="letter1" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter2" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter3" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter4" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter5" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
                 </div>
                 <div class="letters">
-                  <input id="nowhere" class="nowhere" type="text" style="text-transform:uppercase" onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter6" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter7" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter8" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter9" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter10" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <div class="letters">
+                  <input id="letter11" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter12" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter13" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter14" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter15" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <div class="letters">
+                  <input id="letter16" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter17" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter18" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter19" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter20" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <div class="letters">
+                  <input id="letter21" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter22" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter23" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter24" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter25" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <div class="letters">
+                  <input id="letter26" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter27" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter28" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter29" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter30" class="letter" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
                 </div>
                 <button type="submit" class="btn btn-success btn-sm" id="button-go">Go</button>
               </form>

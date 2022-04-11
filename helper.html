@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mike Goren">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <link href="https://bootswatch.com/5/sketchy/bootstrap.css" rel="stylesheet">
+    <link href="wordle.css?version=15" rel="stylesheet" type="text/css">
+    <link href="colors.css?version=15" rel="stylesheet" type="text/css">
+    <script src="helper.js?version=15"></script>
+    <title>Pointless Wordle Solver</title>
+  </head>
+  <body id="body">
+    <div class="container" id="container">
+      <header>
+        <h2>Pointless Wordle Solver</h2>
+      </header>
+      <section>
+        <div class="card rounded-0" id="form-card">
+          <div class="card-body">
+            <div class="card-text instructions-container">
+              <div id="instructions">
+                <p><span id='green' class='color-name'>Top</span> &ndash; letters with known position<span class="extra"> in the word</span></p>
+                <p><span id='yellow' class='color-name'>Mid</span> &ndash; letters exist elsewhere<span class="extra"> in the word</span></p>
+                <p><span id='grey' class='color-name'>Bottom</span> &ndash; letters <span class="extra"> do </span>not <span class="extra"> exist </span> in the word</p>
+              </div>
+              <form id="form" autocomplete="off">
+                <div id="known" class="letters">
+                  <input id="letter1" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" autofocus=true enterkeyhint="go">
+                  <input id="letter2" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter3" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter4" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter5" class="letter letter-known" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <div id="elsewhere" class="letters">
+                  <input id="letter6" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter7" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter8" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter9" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                  <input id="letter10" class="letter letter-elsewhere" type="text" style="text-transform:uppercase" maxlength=1 onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <div class="letters">
+                  <input id="nowhere" class="nowhere" type="text" style="text-transform:uppercase" onkeypress="return /[a-z]/i.test(event.key)" enterkeyhint="go">
+                </div>
+                <button type="submit" class="btn btn-success btn-sm" id="button-go">Go</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="output">
+          <div id="info">
+            <div class="card rounded-0">
+              <div class="card-body">
+                <div class="holder">
+                  <label>Somewhere, but not here...</label>
+                </div>
+                <div class="card-text">
+                  <div id="elsewhere-display" class="letters">
+                    <span id="elsewhereInfo1" class='info letter'></span>
+                    <span id="elsewhereInfo2" class='info letter'></span>
+                    <span id="elsewhereInfo3" class='info letter'></span>
+                    <span id="elsewhereInfo4" class='info letter'></span>
+                    <span id="elsewhereInfo5" class='info letter'></span>
+                  </div>
+                  <div id="nowhere-display">
+                    <div class="holder">
+                      <label>Nope!</label>
+                    </div>
+                    <div class="holder">
+                      <p id="nowhereInfo" class="info"></p>
+                    </div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="result">
+            <div class="card rounded-0">
+              <div class="card-body">
+                <div id="results-display" class="card-text">
+                  <div class="holder">
+                    <label>Some very exciting words:</label>
+                  </div>
+                  <div class="holder">
+                    <p id="wordle-result"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer>
+          <button id='restart' class="btn btn-danger btn-sm col-md-1 float-left">Start Over</button>
+          <span class="small extra">Code available on <a href="https://github.com/mgoren/wordle" target=_blank>GitHub</a>.</span>
+          <button id='toggle-colors' class="btn btn-dark btn-sm col-md-1 float-right">Dark Theme</button>
+      </footer>
+    </div>
+  </body>
+</html>

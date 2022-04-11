@@ -110,10 +110,10 @@ function restart() {
 function advance_to_next_tab(e) {
   let next_field = '';
   if (e.target.value.match(/[a-z]/i)) {
-    if (parseInt(e.target.id.substring(6)) % 5 == 0) {
-      document.activeElement.blur();
+    if (e.target.id == 'letter10') {
+      next_field = 'nowhere';
     } else {
-      next_field = 'letter' + (parseInt(e.target.id.substring(6)) + 1);
+      next_field = 'letter' + (parseInt(e.target.id.slice(-1)) + 1);
     }
     document.getElementById(next_field).focus();
   }
